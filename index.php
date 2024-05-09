@@ -28,7 +28,7 @@ $castAwayMoon = new Production("Cast Away on the Moon", "korean", 7);
 
 $ladriBiciclette = new Production("Ladri di biciclette", "italian", 8);
 
-$theRoom = new Production("The Roon", "english", 2);
+$theRoom = new Production("The Room", "english", 2);
 
 $druk = new Production("Druk", "danish", 9);
 
@@ -49,7 +49,7 @@ $fastAndFuriousTD = new Production("Fast & Furious: Tokyo Drift", "english", 6);
 <body>
 
     <header>
-        <div class="bg-info">
+        <div class="bg-info mb-4">
             <div class="container p-3 text-light">
                 <h1>Production list</h1>
             </div>
@@ -58,19 +58,25 @@ $fastAndFuriousTD = new Production("Fast & Furious: Tokyo Drift", "english", 6);
 
     <main>
         <div class="container">
-            <ul class="row">
+            <div class="row gx-3">
                 <?php
                 foreach(Production::$allProduction as $prod){
                     ?>
-                    <li class="col-3">
-                        <h3><?php echo $prod->title; ?></h3>
-                        <p><?php echo $prod->language; ?></p>
-                        <p><?php echo $prod->rate; ?></p>
-                    </li>
+                    <div class="col-3 pb-4">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                <h3 class="card-title"><?php echo $prod->title; ?></h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-subtitle mb-2 text-muted"><?php echo $prod->language; ?></p>
+                                <p class="card-text">Rate: <?php echo $prod->rate; ?></p>    
+                            </div>
+                        </div>
+                    </div>
                     <?php
                 }
                 ?>
-            </ul>
+            </div>
         </div>
     </main>
 </body>
