@@ -34,7 +34,7 @@ $druk = new Production("Druk", "danish", 9);
 
 $fastAndFuriousTD = new Production("Fast & Furious: Tokyo Drift", "english", 6);
 
-var_dump(Production::$allProduction);
+// var_dump(Production::$allProduction);
 
 
 ?>
@@ -60,12 +60,12 @@ var_dump(Production::$allProduction);
         <div class="container">
             <ul class="row">
                 <?php
-                for($i = 0; $i < count(Production); $i++){
+                foreach(Production::$allProduction as $prod){
                     ?>
                     <li class="col-3">
-                        <h3><?php echo $title; ?></h3>
-                        <p><?php echo $language; ?></p>
-                        <p><?php echo $rate; ?></p>
+                        <h3><?php echo $prod->title; ?></h3>
+                        <p><?php echo $prod->language; ?></p>
+                        <p><?php echo $prod->rate; ?></p>
                     </li>
                     <?php
                 }
