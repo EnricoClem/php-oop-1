@@ -4,17 +4,17 @@ class Production {
     public $title;
     public $language;
     public $rate;
+
+    public function __construct($_title, $_language, $_rate) {
+        $this->title = $_title;
+        $this->language = $_language;
+        $this->rate = $_rate;
+    }
 }
 
-$lotr = new Production();
-$lotr->title = "Lord of the Rings";
-$lotr->language = "English";
-$lotr->rate = 10;
+$lotr = new Production("Lord of the Rings", "English", 10);
 
-$castAwayMoon = new Production();
-$castAwayMoon->title = "Cast Away on the Moon";
-$castAwayMoon->language = "Korean";
-$castAwayMoon->rate = 7;
+$castAwayMoon = new Production("Cast Away on the Moon", "Korean", 7);
 
 var_dump($lotr);
 var_dump($castAwayMoon);
