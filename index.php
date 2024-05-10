@@ -7,12 +7,10 @@ class Production {
 
     public static $allProduction = array();
 
-    public function __construct(string $_title,string $_language,int $_rate,string $_profits,int $_length) {
+    public function __construct($_title, $_language, $_rate) {
         $this->title = $_title;
         $this->language = $_language;
         $this->rate = $_rate;
-        $this->profits = $_profits;
-        $this->length = $_length;
         self::$allProduction[] = $this;
     }
 
@@ -22,17 +20,31 @@ class Production {
         return $this->rate;
         return $this->profits;
         return $this->length;
+        return $this->seasons;
+        return $this->totalEpisodes;
     }
 }
 
 class Movie extends Production {
     public $profits;
     public $length;
+
+    public function __construct($_title, $_language, $_rate, $_profits, $_length) {
+        parent::__construct($_title, $_language, $_rate);
+        $this->profits = $_profits;
+        $this->length = $_length;
+    }
 }
 
 class TVSerie extends Production {
     public $seasons;
     public $totalEpisodes;
+
+    public function __construct($_title, $_language, $_rate, $_seasons, $_totalEpisodes) {
+        parent::__construct($_title, $_language, $_rate);
+        $this->seasons = $_seasons;
+        $this->totalEpisodes = $_totalEpisodes;
+    }
 }
 
 $lotr = new Movie("Lord of the Rings", "english", 10, '180m', 160);
@@ -47,7 +59,19 @@ $druk = new Movie("Druk", "danish", 9, '80m', 120);
 
 $fastAndFuriousTD = new Movie("Fast & Furious: Tokyo Drift", "english", 6, '240m', 140);
 
-// var_dump(Production::$allProduction);
+$strangerThings = new TVSerie("Stranger Things", "english", 8, 5, 46);
+
+$misfits = new TVSerie("Misfits", "english", 7, 3, 30);
+
+$theExpanse = new TVSerie("The Expanse", "english", 8, 6, 48);
+
+$loki = new TVSerie("Loki", "english", 7, 2, 16);
+
+$cesaroni = new TVSerie("I Cesaroni", "italian", 5, 13, 248);
+
+$tedLasso = new TVSerie("Ted Lasso", "english", 8, 3, 36);
+
+var_dump(Production::$allProduction);
 
 
 ?>
